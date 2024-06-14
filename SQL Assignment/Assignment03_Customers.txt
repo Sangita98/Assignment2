@@ -1,0 +1,20 @@
+// Assignment 3: Write a SELECT query to retrieeeve all columns from a 'Customers' table, and modify it to return only the customer name and email address for customers in a specific city.
+
+create table Customers(
+CustomerID int primary key,
+Name varchar2(30),
+Email varchar2(30),
+city varchar2(50),
+Country varchar2(50)
+);
+
+insert into Customers values(1,'john','john@gmail.com','new york','USA');
+insert into Customers values(2,'sumit','sumit@gmail.com','London','USA');
+insert into Customers values(3,'sangita','sangita@gmail.com','Bhopal','UK');
+insert into Customers values(4,'parth','parth@gmail.com','new york','UK');
+insert into Customers values(5,'ramesh','ramesh@gmail.com','Mumbai','Australia');
+
+select * from Customers;
+
+select Name,Email from Customers
+where City='new york';

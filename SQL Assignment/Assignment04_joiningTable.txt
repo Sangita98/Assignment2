@@ -1,0 +1,42 @@
+//Assignment 4: Craft a query using an INNER JOIN to combine 'orders' and 'Customers' table dor customers in a spefied region, and a LEFT JOIN to display all customer including those without orders.
+
+create table Customer(
+customerID int primary key,
+customerName varchar2(30) not null,
+region varchar2(50)
+);
+
+create table orders(
+orderID int primary key,
+orderDate date,
+customerID int,
+foreign key(customerID) references Customer(customerID)
+);
+ drop table orders;
+insert into customer values(1,'mohit','North');
+insert into customer values(2,'sumit','South');
+insert into customer values(3,'radhika','East');
+insert into customer values(4,'parth','East');
+insert into customer values(5,'sangita','North');
+
+select * from customer;
+
+insert into orders values(101,'15-jan-2024',1);
+insert into orders values(102,'10-feb-2024',2);
+insert into orders values(103,'05-march-2024',1);
+insert into orders values(104,'20-apr-2024',3);
+insert into orders values(105,'25-may-2024',4);
+
+select * from orders;
+
+select c.customerID,c.customerName,o.orderID,o.orderDate from Customer c
+inner join orders o
+on c.customerID=o.customerID
+where c.region='East';
+
+select c.customerID,c.customerName,o.orderID,o.orderDate from Customer c
+left join orders o
+on c.customerID=o.customerID;
+
+
+

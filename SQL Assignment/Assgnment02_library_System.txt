@@ -1,0 +1,61 @@
+//Assignment 2: Design a database schema for a library system, including tables, feild, and constraint like NOT NULL, UNIQUE, and CHECK. include primary and foreign krys to establish relationships between tables.
+
+
+create table authors
+(
+authorID int primary key,
+authorName varchar2(30) not null
+);
+
+desc authors;
+
+create table books(
+ISBN varchar2(20) primary key,
+Title varchar2(255) not null,
+PublicationYear int check(PublicationYear >= 0),
+authorID int,
+constraint fk_authorID foreign key(authorID) references authors(authorID) 
+);
+
+desc books;
+
+create table Members(
+memberID int primary key,
+memberName varchar2(30)not null,
+email varchar(30) unique,
+phone varchar2(20),
+address varchar2(255)
+);
+
+desc Members;
+
+create table BorrowingRecords(
+borrowingID int primary key,
+memberID int,
+ISBN varchar2(20),
+borrowDate date not null,
+returndate date,
+constraint fk_memberID foreign key(memberID) references Members(memberID),
+constraint fk_ISBN foreign key(ISBN) references books(ISBN)
+)
+
+desc BorrowingRecords;
+
+create table Publishers(
+publisherID int primary key,
+publisherName varchar2(30) not null,
+city varchar(50),
+country varchar2(50)
+);
+
+desc Publishers;
+
+create table BookCopies(
+copyID int primary key,
+ISBN varchar2(20),
+copyNumber int,
+status varchar2(20) check(status IN ('Available','Borrowed','Reserved')),
+constraint fk_ISBN_copy foreign key(ISBN) references books(ISBN)
+)
+
+desc BookCopies;
