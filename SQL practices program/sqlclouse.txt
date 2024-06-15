@@ -1,0 +1,50 @@
+select * from employee order by age;
+select id,name,age from employee order by age asc;
+
+select id,name,age from employee
+order by age desc;
+
+select * from employee;
+
+select dept from employee group by dept;
+select dept,count(id) from employee group by dept;
+
+select sum(salary), min(salary), max(salary) as smallestsalary from employee;
+
+select count(id) from employee;
+
+select dept, count(id), sum(salary), min(salary), avg(salary) from employee 
+group by dept;
+
+select dept,sum(salary) from employee
+group by dept;
+
+select dept,max(salary) from employee
+group by dept;
+
+select dept,max(salary) from employee
+group by dept
+order by max(salary) desc;
+
+select dept,count(id) from employee
+group by dept order by count(id) desc;
+
+insert into employee values(8,'pankaj',35000,'admin',48);
+insert into employee values(9,'dipak',37000,'tester',56);
+
+select dept,count(id) from employee
+where dept != 'hr'
+group by dept 
+having count(id)>1
+order by count(id) desc;
+
+select dept,count(id)from employee
+where dept='hr'
+group by dept;
+
+select dept,min(salary) from employee
+group by dept
+having min(salary) <40000
+order by min(salary);
+
+

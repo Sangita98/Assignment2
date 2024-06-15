@@ -1,0 +1,27 @@
+select * from employee;
+
+select * from employee where name like '%t';
+select * from employee where name like 'm%';
+select * from employee where name like '_a%';
+select * from employee where name like '__n%';
+select * from employee where name like '%a%';
+
+select * from employee where salary>3000;
+
+select * from employee
+where salary >(select salary from employee where name='mohit');
+
+select salary from employee where dept='developer';
+
+select * from employee where id=1;
+select * from employee where id in (1,2,3,8,9);
+select * from employee where id in (101,2,23,8,9);
+select * from employee where id > 5;
+select * from employee where id > any (3,6,7);
+select * from employee where id > all (3,6,7);
+
+select * from employee 
+where salary > any (select salary from employee where dept='developer') and dept!='developer';
+
+select * from employee 
+where salary > any (select salary from employee where dept='developer');

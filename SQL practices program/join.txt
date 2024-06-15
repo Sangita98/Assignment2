@@ -1,0 +1,57 @@
+select * from emp;
+select * from dept;
+
+insert into emp values(1,'sangita',22,50000,101);
+insert into emp values(2,'rishika',23,55000,103);
+insert into emp values(3,'sumit',24,35000,103);
+insert into emp values(4,'parth',25,30000,104);
+insert into emp values(5,'sangita',25,50000,104);
+
+select * from emp
+inner join
+dept
+on emp.deptid=dept.id;
+
+select * from emp
+right outer join
+dept
+on emp.deptid=dept.id;
+
+select * from emp
+left outer join
+dept
+on emp.deptid=dept.id;
+
+select * from emp
+full outer join
+dept
+on emp.deptid=dept.id;
+
+
+select e.id,e.name,e.age,d.name,d.manager
+from emp e
+inner join
+dept d
+on e.deptid=d.id;
+
+
+select e.id,e.name,e.age,e.salary,d.name,d.manager
+from emp e
+inner join
+dept d
+on e.deptid=d.id;
+where e.salary>30000;
+
+select e.id,e.name,e.age,e.salary,d.name,d.manager
+from emp e
+inner join
+dept d
+on e.deptid=d.id;
+where e.salary>30000
+order by e.salary desc;
+
+select * from emp
+cross join 
+dept;
+
+

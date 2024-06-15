@@ -1,0 +1,46 @@
+select *from employee;
+
+create table employee2
+(
+id int primary key,
+name varchar2(30) not null,
+age number(10)
+);
+
+create table employee3
+(
+id number(10) primary key,
+name varchar2(30) not null,
+age number(10) check(age>22),
+dept varchar2(30) default 'trainee',
+email varchar2(30) unique,
+contactno varchar2(30) unique
+);
+
+desc employee3;
+
+desc employee2;
+
+insert into employee2 values(4,'saloni',26);
+insert into employee2(id,age) values(5,25);                                                 (
+
+select *from employee2;
+
+insert into employee3 values(5,'raju',23,'hr','raju@gmail.com','456387');
+insert into employee3(id,name,age) values(3,'rahul',30);
+insert into employee3(id,name,age) values(4,'kumar',30);
+select *from employee3;
+
+create table employee4
+(
+id number(10),
+name varchar2(20),
+age number,
+constraint pk1 primary key(id)
+);
+
+desc employee4;
+
+
+
+

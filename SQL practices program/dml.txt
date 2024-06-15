@@ -1,0 +1,24 @@
+
+truncate table employee;
+describe employee;
+drop table employee;
+
+create table employee
+(
+id number(10),
+name varchar2(30),
+salary number(10,2),
+dept varchar2(30),
+age number
+)
+ insert into employee values(8,'sangita',66000,'developer',23);
+ insert into employee values(9,'vaidhu', 30000,'scientists,23);
+ insert into employee(id,name,salary,dept,age) values(5,'rishu',440000,'developer',25);
+select * from employee;
+
+select id,name from employee;
+select id,name,age from employee;
+insert into employee values(7,'sumit',26000,'tester',35);
+select id,name,salary,salary+1000 as bonus,salary/30 from employee;
+select * from employee where dept='tester';
+
